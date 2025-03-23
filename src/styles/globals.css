@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+@keyframes wave-entrance {
+    0% {
+        transform: translateX(-30%) scale(0.95);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.animate-wave {
+    animation: wave-entrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+}
+
+.delay-150 { animation-delay: 150ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-450 { animation-delay: 450ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-750 { animation-delay: 750ms; }
+@keyframes slideInFromLeft {
+	from {
+	  transform: translateX(-20%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+  
+  .slide-in {
+	animation: slideInFromLeft 1.8s ease-out forwards;
+  }
+  
+  .delay-1 { animation-delay: 0.3s; }
+  .delay-2 { animation-delay: 0.6s; }
+  .delay-3 { animation-delay: 0.9s; }
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@media print {
+	footer,
+	button,
+	#contattami {
+		display: none;
+	}
+}
