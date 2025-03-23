@@ -23,7 +23,7 @@ export default function ContactForm() {
 	};
 
 	return (
-		<Section title="Contattami" icon={Send}>
+		<Section id="contatti" title="Contattami" icon={Send}>
 			<form onSubmit={handleSubmit} className="space-y-6">
 				<Input label="Nome" id="name" required />
 				<Input label="Email" id="email" type="email" required />

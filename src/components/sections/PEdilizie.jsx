@@ -10,14 +10,13 @@ const incentivi = [
 
 export default function PEdilizie() {
     return (
-        <Section title="PRATICHE EDILIZIE" icon={Book}>
+        <Section id="edilizie" title="PRATICHE EDILIZIE" icon={Book}>
             <article className="space-y-2">
                 <p className="text-gray-700 animate-wave">
                     Lo studio offre consulenze e gestione delle pratiche edilizie, dalla progettazione alla presentazione delle domande fondamentali per l'esecuzione di lavori di costruzione, modifica o ristrutturazione. Queste pratiche sono necessarie per ottenere le autorizzazioni richieste dagli enti competenti, come l'Ufficio Tecnico del Comune, e garantiscono che gli interventi siano conformi alla normativa vigente.
                         </p>
                 <br />
                 <p className="text-base text-blue-600 font-medium animate-wave delay-150">
-           Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
          PRINCIPALI BONUS EDILIZI ITALIANI ATTUALMENTE IN VIGORE
                 </p>
                 <br />
