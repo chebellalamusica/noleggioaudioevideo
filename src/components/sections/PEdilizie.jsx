@@ -14,8 +14,7 @@ export default function PEdilizie() {
             <article className="space-y-2">
                 <p className="text-gray-700 animate-wave">
                     Lo studio offre consulenze e gestione delle pratiche edilizie, dalla progettazione alla presentazione delle domande fondamentali per l'esecuzione di lavori di costruzione, modifica o ristrutturazione. Queste pratiche sono necessarie per ottenere le autorizzazioni richieste dagli enti competenti, come l'Ufficio Tecnico del Comune, e garantiscono che gli interventi siano conformi alla normativa vigente.
-                    Per una comprensione più dettagliata delle pratiche edilizie e dei relativi requisiti, si fa riferimento alla Tabella A allegata al D.Lgs. 222/2016 – Sezione II - Edilizia, che definisce le tipologie di intervento e le procedure da seguire.
-                </p>
+                        </p>
                 <br />
                 <p className="text-base text-blue-600 font-medium animate-wave delay-150">
            Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
