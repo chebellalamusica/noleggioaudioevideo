@@ -58,3 +58,11 @@ body {
 		display: none;
 	}
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Spazio per l'header */
+}
+
+section {
+  scroll-margin-top: 6rem; /* Allineamento sezioni */
+}
