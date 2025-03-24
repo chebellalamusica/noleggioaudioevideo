@@ -35,7 +35,7 @@ export default function Layout({ children }) {
       <div className="min-h-screen bg-gray-50 flex flex-col">
         {/* Header Animato */}
         <div className={`
-          fixed top-0 w-full z-50 
+           top-0 w-full z-50 
           transition-transform duration-500 
           ease-[cubic-bezier(0.33,1,0.68,1)]
           ${isMounted ? 'translate-y-0' : '-translate-y-full'}
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
         </div>
 
         {/* Contenuto Principale */}
-        <div className="flex-grow pt-65">
+        <div className="flex-grow">
           <main className="container mx-auto px-4 py-8 max-w-3xl">
             {children}
           </main>

@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className={`
-      fixed top-0 w-full z-50 
+       top-0 w-full z-50 
       
       bg-slate-800 text-white py-8 text-center
 
@@ -45,18 +45,7 @@ export default function Header() {
           <p className="text-xl text-blue-100">ARCHITETTO IUNIOR</p>
         </div>
 
-        <nav className="flex flex-wrap justify-center gap-4">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
-        </nav>
-
+        
         <div className="flex flex-wrap justify-center gap-4" id="contact-info">
           <a href="mailto:francescobalestrapd@email.com" className="hover:underline">
             <p className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-xl">
@@ -70,6 +59,19 @@ export default function Header() {
             <MapPin size={18} /> Padova, Italia
           </p>
         </div>
+
+        <nav className="flex flex-wrap justify-center gap-4">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              {item.name}
+            </a>
+          ))}
+        </nav>
+
       </div>
     </header>
   );
