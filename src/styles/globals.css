@@ -1,4 +1,18 @@
 @import 'tailwindcss';
+@layer utilities {
+  .mask-fade {
+    mask-image: linear-gradient(to bottom, 
+      rgba(0,0,0,1) 0%, 
+      rgba(0,0,0,1) 85%, 
+      rgba(0,0,0,0) 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom, 
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 85%,
+      rgba(0,0,0,0) 100%
+    );
+  }
+}
 @keyframes wave-entrance {
     0% {
         transform: translateX(-10%) scale(0.95);

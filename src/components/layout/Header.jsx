@@ -1,5 +1,4 @@
-'use client'; // Aggiungi questa direttiva in cima
-
+'use client';
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Image from 'next/image';
@@ -18,60 +17,59 @@ export default function Header() {
 
   return (
     <header className={`
-       top-0 w-full z-50 
-      
-      bg-slate-800 text-white py-8 text-center
-
+      w-full flex flex-col 
+      bg-blue-100
+       text-gray-700 py-8 text-center
+  shadow-[0_-20px_30px_-10px_rgba(125,211,252,0.25)]
+  mask-fade
       transition-transform duration-500 
       ease-out-cubic
       ${isMounted ? 'translate-y-0' : '-translate-y-full'}
-      overflow-hidden
     `}>
+      
       <div className="absolute inset-0 z-10">
         <Image
           src="/5184157.webp"
           alt="Texture sfondo"
           fill
-          priority={true}
-          className="object-cover opacity-20 mix-blend-overlay"
+          priority
+          className="object-cover opacity-70 mix-blend-luminosity"
           sizes="100vw" 
           quality={75}
         />
       </div>
 
-      <div className="relative z-20 space-y-6">
+      <div className="relative z-20 space-y-8 container mx-auto px-4">
         <div className="space-y-2">
-          <h1 className="text-4xl font-bold m-0">STUDIO FRANCESCO BALESTRA</h1>
-          <p className="text-xl text-blue-100">ARCHITETTO IUNIOR</p>
+          <h1 className="text-4xl font-semibold m-0">STUDIO FRANCESCO BALESTRA</h1>
+          <p className="text-xl font-mono text-gray-600">ARCHITETTO IUNIOR</p>
         </div>
 
-        
         <div className="flex flex-wrap justify-center gap-4" id="contact-info">
           <a href="mailto:francescobalestrapd@email.com" className="hover:underline">
-            <p className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-xl">
+            <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
               <Mail size={18} /> francescobalestrapd@gmail.com
             </p>
           </a>
-          <p className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-xl">
+          <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
             <Phone size={18} /> +39 3467923442
           </p>
-          <p className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-xl">
+          <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
             <MapPin size={18} /> Padova, Italia
           </p>
         </div>
 
-        <nav className="flex flex-wrap justify-center gap-4">
+        <nav className="flex flex-wrap justify-center gap-4 mb-8">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors"
+              className="px-7 py-1 rounded-sm border-2 border-black/10 hover:border-black/20 transition-all bg-black/5 hover:bg-black/10"
             >
               {item.name}
             </a>
           ))}
         </nav>
-
       </div>
     </header>
   );
