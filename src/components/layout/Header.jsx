@@ -18,8 +18,8 @@ export default function Header() {
   return (
     <header className={`
       w-full flex flex-col 
-      bg-blue-100
-       text-gray-700 py-8 text-center
+      bg-[#A0D1F6]/50
+       text-[#49545A] py-8 text-center
   shadow-[0_-20px_30px_-10px_rgba(125,211,252,0.25)]
   mask-fade
       transition-transform duration-500 
@@ -42,7 +42,7 @@ export default function Header() {
       <div className="relative z-20 space-y-8 container mx-auto px-4">
         <div className="space-y-2">
           <h1 className="text-4xl font-semibold m-0">STUDIO FRANCESCO BALESTRA</h1>
-          <p className="text-xl font-mono text-gray-600">ARCHITETTO IUNIOR</p>
+          <p className="text-xl font-mono text-[#718096]-600">ARCHITETTO IUNIOR</p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4" id="contact-info">
@@ -64,7 +64,7 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="px-7 py-1 rounded-sm border-2 border-black/10 hover:border-black/20 transition-all bg-black/5 hover:bg-black/10"
+              className="px-7 py-1 rounded-sm border-1 border-black/2 hover:border-[#D8EFFD] transition-all bg-black/4 hover:bg-[#D8EFFD]"
             >
               {item.name}
             </a>

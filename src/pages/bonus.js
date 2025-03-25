@@ -34,7 +34,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 max-w-3xl mt-8 mb-12 text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg"
+          className="inline-flex items-center gap-2 bg-[#A0D1F6] text-white px-6 py-3 rounded-lg hover:bg-[#D8EFFD] transition-colors text-lg"
         >
           <Home className="w-5 h-5" />
           Torna alla Pagina Principale
@@ -45,7 +45,7 @@ export default function AboutPage() {
       {showScrollButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+          className="fixed bottom-8 right-8 p-3 bg-[#A0D1F6] text-white rounded-full shadow-lg hover:bg-[#D8EFFD] transition-colors"
         >
           <ArrowUp className="w-6 h-6" />
         </button>
