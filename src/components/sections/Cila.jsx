@@ -1,7 +1,7 @@
 import { Armchair } from 'lucide-react';
 import Section from '../ui/Section';
 
-export default function Cila ({ id }) {
+export default function Cila({ id }) {
   return (
     <Section id={id} title="CILA" icon={Armchair}>
       <article className="space-y-2">

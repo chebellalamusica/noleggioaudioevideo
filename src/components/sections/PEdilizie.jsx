@@ -1,6 +1,7 @@
 import { Book } from 'lucide-react'
 import Link from 'next/link'
 import Section from '../ui/Section'
+import { useRouter } from 'next/router'
 
 const incentivi = [
     { name: 'BONUS RISTRUTTURAZIONI', id: 'bonusristrutturazioni' },
@@ -18,6 +19,21 @@ const pratiche = [
 ]
 
 export default function PEdilizie() {
+    const router = useRouter()
+
+    const handleAnchorLink = (path, hash) => {
+        router.push({ pathname: path, hash: hash })
+            .then(() => {
+                const element = document.getElementById(hash)
+                if(element) {
+                    element.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    })
+                }
+            })
+    }
+
     return (
         <Section id="edilizie" title="PRATICHE EDILIZIE" icon={Book}>
             <article className="space-y-2">
@@ -44,12 +60,12 @@ export default function PEdilizie() {
                                     className={`relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave delay-${300 + (index * 150)}`}
                                 >
                                     <span className="absolute left-0 text-[#A0D1F6] text-[18px]">▹</span>
-                                    <Link 
-                                        href={`/pratiche#${item.id}`}
-                                        className="hover:text-[#A0D1F6] transition-colors text-[18px]"
+                                    <button
+                                        onClick={() => handleAnchorLink('/pratiche', item.id)}
+                                        className="hover:text-[#A0D1F6] transition-colors text-[18px] w-full text-left"
                                     >
                                         {item.name}
-                                    </Link>
+                                    </button>
                                 </li>
                             ))}
                         </ul>
@@ -73,12 +89,12 @@ export default function PEdilizie() {
                                     className={`relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave delay-${300 + (index * 150)}`}
                                 >
                                     <span className="absolute left-0 text-[#A0D1F6] text-[18px]">▹</span>
-                                    <Link 
-                                        href={`/bonus#${item.id}`}
-                                        className="hover:text-[#A0D1F6] transition-colors text-[18px]"
+                                    <button
+                                        onClick={() => handleAnchorLink('/bonus', item.id)}
+                                        className="hover:text-[#A0D1F6] transition-colors text-[18px] w-full text-left"
                                     >
                                         {item.name}
-                                    </Link>
+                                    </button>
                                 </li>
                             ))}
                         </ul>
