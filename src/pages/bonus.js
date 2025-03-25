@@ -25,7 +25,14 @@ export default function AboutPage() {
                 <h1 className="text-3xl font-semibold text-[#2B4D76] mb-4">
                     Agevolazioni Fiscali per la Tua Casa
                 </h1>
-                <p className="text-lg text-[#5F5F5F]">
+                <div className="glow-box bg-[#A0D1F6]/10 p-2 rounded-xl transition-all">
+                <h2 className="text-[19px] text-[#2B4D76] font-medium leading-snug">                Un servizio completo per orientarti nel complesso panorama normativo, 
+                garantendo il corretto iter autorizzativo per ogni tipologia di intervento.
+
+                </h2>
+                </div>
+            
+                <p className="text-[17px] text-[#5F5F5F] mt-5">
                     Massimizza i vantaggi delle detrazioni previste dalla legge per interventi di riqualificazione,
                     efficienza energetica e sicurezza sismica. Un supporto completo per orientarti tra benefit e adempimenti.
                 </p>

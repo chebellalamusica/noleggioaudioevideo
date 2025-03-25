@@ -26,12 +26,13 @@ export default function Pratiche() {
                 <h1 className="text-[33px] font-semibold text-[#2B4D76] mb-4">
                     Gestione delle Pratiche Edilizie
                 </h1>
-                <h2 className="text-[19px] text-[#A0D1F6] mt-6">
-                Un servizio completo per orientarti nel complesso panorama normativo, 
+                <div className="glow-box bg-[#A0D1F6]/10 p-2 rounded-xl transition-all">
+                <h2 className="text-[17px] text-[#2B4D76] font-medium leading-snug">                Un servizio completo per orientarti nel complesso panorama normativo, 
                 garantendo il corretto iter autorizzativo per ogni tipologia di intervento.
 
                 </h2>
-                <p className="text-lg text-[#5F5F5F] text-left mt-5">
+                </div>
+                <p className="text-lg text-[#5F5F5F] mt-5">
                     Ai sensi del D.P.R. n. 380 del 2001, il quadro normativo prevede specifici titoli abilitativi per regolare gli interventi edilizi. Tra questi si distinguono: la Comunicazione di Inizio Lavori Asseverata (CILA), adatta a opere minori; la Segnalazione Certificata di Inizio Attività (SCIA), basata su un’autodichiarazione con controlli successivi; il Permesso di Costruire (PdC), obbligatorio per progetti di maggiore impatto; e la SCIA alternativa al Permesso di Costruire, una via sostitutiva introdotta per semplificare determinate pratiche. Questi titoli costituiscono gli strumenti autorizzativi fondamentali per avviare lavori in conformità alla legge,
                 </p>
             </div>
