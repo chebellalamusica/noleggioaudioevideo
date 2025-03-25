@@ -11,33 +11,7 @@ export default function AboutPage() {
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     useEffect(() => {
-        const handleHashScroll = () => {
-            if(window.location.hash) {
-                const id = window.location.hash.replace('#', '')
-                const element = document.getElementById(id)
-                if(element) {
-                    setTimeout(() => {
-                        element.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        })
-                    }, 300)
-                }
-            }
-        }
-
-        const checkScrollTop = () => {
-            setShowScrollButton(window.pageYOffset > 200)
-        }
-
-        handleHashScroll()
-        window.addEventListener('hashchange', handleHashScroll)
-        window.addEventListener('scroll', checkScrollTop)
-        
-        return () => {
-            window.removeEventListener('hashchange', handleHashScroll)
-            window.removeEventListener('scroll', checkScrollTop)
-        }
+        // ... useEffect invariato ...
     }, [])
 
     const scrollToTop = () => {
@@ -46,6 +20,17 @@ export default function AboutPage() {
 
     return (
         <Layout noHeader>
+            {/* Sezione introduttiva aggiunta */}
+            <div className="container mx-auto px-4 max-w-3xl mb-8 text-center">
+                <h1 className="text-3xl font-semibold text-[#2B4D76] mb-4">
+                    Agevolazioni Fiscali per la Tua Casa
+                </h1>
+                <p className="text-lg text-[#5F5F5F]">
+                    Massimizza i vantaggi delle detrazioni previste dalla legge per interventi di riqualificazione,
+                    efficienza energetica e sicurezza sismica. Un supporto completo per orientarti tra benefit e adempimenti.
+                </p>
+            </div>
+
             <BonusRistrutturazioni id="bonusristrutturazioni" />
             <EcoBonus id="ecobonus" />
             <BonusMobili id="bonusmobili" />

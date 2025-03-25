@@ -14,7 +14,7 @@ const pratiche = [
     { name: 'CILA', id: 'Cila' },
     { name: 'SCIA', id: 'Scia' },
     { name: 'PERMESSO DI COSTRUIRE', id: 'PCostruire' },
-    { name: 'ATTESTATO AGIBILITA', id: 'AttestatoAgibilita' },
+    { name: 'SCIA sostitutiva PdC', id: 'AttestatoAgibilita' },
     { name: 'PRATICHE CATASTALI', id: 'PCatastali' },
 ]
 
@@ -37,10 +37,21 @@ export default function PEdilizie() {
     return (
         <Section id="edilizie" title="PRATICHE EDILIZIE" icon={Book}>
             <article className="space-y-2">
-                <p className="text-[17px] text-[#5F5F5F] animate-wave">
-                    Offriamo consulenze e gestione delle pratiche edilizie, dalla progettazione alla compilazione e presentazione delle domande fondamentali per l'esecuzione di lavori di costruzione, modifica o ristrutturazione. Queste pratiche sono necessarie per ottenere le autorizzazioni richieste dagli enti competenti, come l'Ufficio Tecnico del Comune, e garantiscono che gli interventi siano conformi alla normativa vigente.
-                </p>
-
+                <p className="text-[17px] text-[#5F5F5F] animate-wave ">
+                Offriamo supporto completo nelle pratiche edilizie, dalla fase progettuale
+                 alla presentazione delle domande presso glie enti competenti. 
+                <br /> 
+Affianchiamo i propri clienti per una conformità certa con le normative vigenti, per
+ottenere le autorizzazioni richieste dagli enti competenti.               
+<span className="block h-[10px]" />
+Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolamenti e
+ iter burocratici può essere complesso. Per questo mi dedico ad affiancare privati e
+  professionisti nella gestione delle pratiche, dalla progettazione agli adempimenti finali.
+  <span className="block h-[10px]" />
+  Mi occupo della corretta compilazione delle pratiche edilizie per l'ottenimento dei titoli
+   abilitativi: CILA, SCIA, Permesso di Costruire, SCIA alternativa al PdC.
+   <span className="block h-[10px]" />
+</p>
                 <div className="flex flex-wrap gap-4 justify-between">
                     {/* Colonna Pratiche Edilizie */}
                     <div className="flex-1 min-w-[300px] border-2 border-[#A0D1F6]/20 rounded-lg p-1 space-y-3 transition-all duration-300 hover:border-[#A0D1F6]/25">

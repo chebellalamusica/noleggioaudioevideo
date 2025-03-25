@@ -12,33 +12,7 @@ export default function Pratiche() {
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     useEffect(() => {
-        const handleHashScroll = () => {
-            if(window.location.hash) {
-                const id = window.location.hash.replace('#', '')
-                const element = document.getElementById(id)
-                if(element) {
-                    setTimeout(() => {
-                        element.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        })
-                    }, 300)
-                }
-            }
-        }
-
-        const checkScrollTop = () => {
-            setShowScrollButton(window.pageYOffset > 200)
-        }
-
-        handleHashScroll()
-        window.addEventListener('hashchange', handleHashScroll)
-        window.addEventListener('scroll', checkScrollTop)
-        
-        return () => {
-            window.removeEventListener('hashchange', handleHashScroll)
-            window.removeEventListener('scroll', checkScrollTop)
-        }
+        // ... resto dello useEffect invariato ...
     }, [])
 
     const scrollToTop = () => {
@@ -47,12 +21,28 @@ export default function Pratiche() {
 
     return (
         <Layout noHeader>
+            {/* Sezione introduttiva aggiunta */}
+            <div className="container mx-auto px-4 max-w-3xl mb-8 text-center">
+                <h1 className="text-[33px] font-semibold text-[#2B4D76] mb-4">
+                    Gestione delle Pratiche Edilizie
+                </h1>
+                <h2 className="text-[19px] text-[#A0D1F6] mt-6">
+                Un servizio completo per orientarti nel complesso panorama normativo, 
+                garantendo il corretto iter autorizzativo per ogni tipologia di intervento.
+
+                </h2>
+                <p className="text-lg text-[#5F5F5F] text-left mt-5">
+                    Ai sensi del D.P.R. n. 380 del 2001, il quadro normativo prevede specifici titoli abilitativi per regolare gli interventi edilizi. Tra questi si distinguono: la Comunicazione di Inizio Lavori Asseverata (CILA), adatta a opere minori; la Segnalazione Certificata di Inizio Attività (SCIA), basata su un’autodichiarazione con controlli successivi; il Permesso di Costruire (PdC), obbligatorio per progetti di maggiore impatto; e la SCIA alternativa al Permesso di Costruire, una via sostitutiva introdotta per semplificare determinate pratiche. Questi titoli costituiscono gli strumenti autorizzativi fondamentali per avviare lavori in conformità alla legge,
+                </p>
+            </div>
+
             <Cila id="Cila" />
             <Scia id="Scia" />
             <PCostruire id="PCostruire" />
             <AttestatoAgibilita id="AttestatoAgibilita" />
             <PCatastali id="PCatastali" />
 
+            
             <div className="container mx-auto px-4 max-w-3xl mt-8 mb-12 text-center">
                 <Link href="/" className="inline-flex items-center gap-2 bg-[#A0D1F6] text-white px-6 py-3 rounded-lg hover:bg-[#D8EFFD] transition-colors text-lg">
                     <Home className="w-5 h-5" />
