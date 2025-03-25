@@ -14,36 +14,37 @@ export default function PEdilizie() {
         <Section id="edilizie" title="PRATICHE EDILIZIE" icon={Book}>
             <article className="space-y-2">
                 <p className="text-[#5F5F5F] animate-wave" >
-                Lo studio offre consulenze e gestione delle pratiche edilizie, dalla progettazione alla presentazione delle domande fondamentali per l'esecuzione di lavori di costruzione, modifica o ristrutturazione. Queste pratiche sono necessarie per ottenere le autorizzazioni richieste dagli enti competenti, come l'Ufficio Tecnico del Comune, e garantiscono che gli interventi siano conformi alla normativa vigente.
+                    Lo studio offre consulenze e gestione delle pratiche edilizie...
                 </p>
                 
-                
-                <div className="mb-3 pt-2">  {/* Aggiunto padding-top e margin-bottom maggiore */}
-                <Link 
-                    href="/bonus"
-                    className="text-base text-[#A0D1F6] font-medium animate-wave delay-150 hover:underline transition-colors"
-                >
-                    PRINCIPALI BONUS EDILIZI ITALIANI ATTUALMENTE IN VIGORE
-                </Link>
-                </div>
-                
-                <ul className="space-y-2">
-                    {incentivi.map((item, index) => (
-                        <li
-                            key={index}
-                            className={`relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave delay-${300 + (index * 150)}`}
+                {/* Contenitore con bordo */}
+                <div className="border-2 border-[#A0D1F6]/20 rounded-lg p-1 space-y-3 transition-all duration-300 hover:border-[#A0D1F6]/25">
+                    <div className="pt-2 bg-[#E6F5FC]/50 rounded-[8px] p-2 space-y-3">
+                        <Link 
+                            href="/bonus"
+                            className="text-[18px] text-[#A0D1F6] font-medium animate-wave delay-150 hover:underline transition-colors"
                         >
-                            <span className="absolute left-0 text-[#A0D1F6]">▹</span>
-                            
-                            <Link 
-                                href={`/bonus#${item.id}`}
-                                className="hover:text-[#A0D1F6] transition-colors"
+                            PRINCIPALI BONUS EDILIZI ITALIANI ATTUALMENTE IN VIGORE
+                        </Link>
+                    </div>
+                    
+                    <ul className="space-y-2">
+                        {incentivi.map((item, index) => (
+                            <li
+                                key={index}
+                                className={`relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave delay-${300 + (index * 150)}`}
                             >
-                                {item.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                                <span className="absolute left-0 text-[#A0D1F6] text-[18px]">▹</span>
+                                <Link 
+                                    href={`/bonus#${item.id}`}
+                                    className="hover:text-[#A0D1F6] transition-colors text-[18px]"
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </article>
         </Section>
     )
