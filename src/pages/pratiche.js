@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Home, ArrowUp } from 'lucide-react';
 import Layout from '../components/layout/Layout';
-import BonusRistrutturazioni from '../components/sections/BonusRistrutturazioni';
-import EcoBonus from '../components/sections/EcoBonus';
-import BonusMobili from '../components/sections/BonusMobili';
-import SismaBonus from '../components/sections/SismaBonus';
+import Cila from '../components/sections/Cila';
+import Scia from '../components/sections/Scia';
+import PCostruire from '../components/sections/PCostruire';
+import AttestatoAgibilita from '../components/sections/AttestatoAgibilita';
+import PCatastali from '../components/sections/PCatastali';
 
-export default function Bonus() {
+export default function Pratiche() {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const checkScrollTop = () => {
@@ -25,10 +26,13 @@ export default function Bonus() {
 
   return (
     <Layout noHeader>
-      <BonusRistrutturazioni />
-      <EcoBonus />
-      <BonusMobili />
-      <SismaBonus />
+      
+      <Cila />
+      <Scia />
+      <PCostruire />
+      <AttestatoAgibilita />
+      <PCatastali />
+      
 
       {/* Bottone Torna alla Home */}
       <div className="container mx-auto px-4 max-w-3xl mt-8 mb-12 text-center">
