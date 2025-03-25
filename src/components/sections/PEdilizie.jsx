@@ -14,7 +14,7 @@ export default function PEdilizie() {
         <Section id="edilizie" title="PRATICHE EDILIZIE" icon={Book}>
             <article className="space-y-2">
                 <p className="text-[#5F5F5F] animate-wave" >
-                    Lo studio offre consulenze e gestione delle pratiche edilizie...
+                Lo studio offre consulenze e gestione delle pratiche edilizie, dalla progettazione alla presentazione delle domande fondamentali per l'esecuzione di lavori di costruzione, modifica o ristrutturazione. Queste pratiche sono necessarie per ottenere le autorizzazioni richieste dagli enti competenti, come l'Ufficio Tecnico del Comune, e garantiscono che gli interventi siano conformi alla normativa vigente.
                 </p>
                 
                 {/* Contenitore con bordo */}
