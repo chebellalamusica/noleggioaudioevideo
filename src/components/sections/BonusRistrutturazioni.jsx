@@ -5,7 +5,7 @@ export default function BonusRistrutturazioni({ id }) {
   return (
     <Section id={id} title="Bonus Ristrutturazioni" icon={HousePlus}>
       <article className="space-y-2">
-        <p className="text-[#5F5F5F] animate-wave delay-150">
+        <p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
         Dal 1° gennaio 2025 al 31 dicembre 2025, il Bonus Ristrutturazione prevede una detrazione del 50% solo per il 2025 e solo per gli interventi sulle abitazioni principali, mentre per le seconde e terze case spetta una detrazione dall’imposta lorda pari al 36% delle spese sostenute, in entrambi i casi fino a un ammontare complessivo delle stesse non superiore a 96.000 euro per unità immobiliare. La detrazione delle spese sostenute negli anni 2026 e 2027 scende anche per le abitazioni principali al 36% e per le altre al 30%.
 
 

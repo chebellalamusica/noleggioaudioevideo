@@ -41,11 +41,11 @@ export default function Header() {
 
       <div className="relative z-20 space-y-8 container mx-auto px-4">
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold m-0">STUDIO FRANCESCO BALESTRA</h1>
-          <p className="text-xl font-mono text-[#718096]-600">ARCHITETTO IUNIOR</p>
+          <h1 className="text-5xl font-semibold m-0">FRANCESCO BALESTRA</h1>
+          <p className="text-2xl font-mono text-[#718096]-600">ARCHITETTO IUNIOR</p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4" id="contact-info">
+        <div className=" text-[17px] flex flex-wrap justify-center gap-4" id="contact-info">
           <a href="mailto:francescobalestrapd@email.com" className="hover:underline">
             <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
               <Mail size={18} /> francescobalestrapd@gmail.com

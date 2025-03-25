@@ -5,7 +5,7 @@ export default function EcoBonus ({ id }) {
   return (
     <Section id={id} title="EcoBonus" icon={SunSnow}>
       <article className="space-y-2">
-        <p className="text-[#5F5F5F] animate-wave delay-150">
+        <p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
         L’Ecobonus è un’agevolazione fiscale (detrazione IRPEF o IRES) da ripartire in 10 rate annuali di pari importo, riconosciuta per i lavori di riqualificazione energetica dell’immobile effettuati sia su edifici unifamiliari sia nei condomini.
 
 L’incentivo si concentra sugli interventi che comportano una riduzione del consumo energetico per il riscaldamento, con l’ottenimento anche di notevoli risparmi economici conseguenti al miglioramento delle prestazioni termiche dell’edificio.
