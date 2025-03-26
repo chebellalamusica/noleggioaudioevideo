@@ -43,14 +43,14 @@ export default function PEdilizie() {
                 <br /> 
 Affianchiamo i propri clienti per una conformità certa con le normative vigenti, per
 ottenere le autorizzazioni richieste dagli enti competenti.               
-<span className="block h-[10px]" />
+
 Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolamenti e
  iter burocratici può essere complesso. Per questo mi dedico ad affiancare privati e
   professionisti nella gestione delle pratiche, dalla progettazione agli adempimenti finali.
-  <span className="block h-[10px]" />
-  Mi occupo della corretta compilazione delle pratiche edilizie per l'ottenimento dei titoli
+
+  Ci occupiamo della corretta compilazione delle pratiche edilizie per l'ottenimento dei titoli
    abilitativi: CILA, SCIA, Permesso di Costruire, SCIA alternativa al PdC.
-   <span className="block h-[10px]" />
+ 
 </p>
                 <div className="flex flex-wrap gap-4 justify-between">
                     {/* Colonna Pratiche Edilizie */}

@@ -61,7 +61,7 @@ export default function Pratiche() {
                 </h2>
                 </div>
                 <p className="text-lg text-[#5F5F5F] mt-5">
-                    Ai sensi del D.P.R. n. 380 del 2001, il quadro normativo prevede specifici titoli abilitativi per regolare gli interventi edilizi. Tra questi si distinguono: la Comunicazione di Inizio Lavori Asseverata (CILA), adatta a opere minori; la Segnalazione Certificata di Inizio Attività (SCIA), basata su un’autodichiarazione con controlli successivi; il Permesso di Costruire (PdC), obbligatorio per progetti di maggiore impatto; e la SCIA alternativa al Permesso di Costruire, una via sostitutiva introdotta per semplificare determinate pratiche. Questi titoli costituiscono gli strumenti autorizzativi fondamentali per avviare lavori in conformità alla legge
+aaaaa
                 </p>
             </div>
 
