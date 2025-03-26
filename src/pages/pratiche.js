@@ -27,7 +27,8 @@ export default function Pratiche() {
                     Gestione delle Pratiche Edilizie
                 </h1>
                 <div className="glow-box bg-[#A0D1F6]/10 p-2 rounded-xl transition-all">
-                <h2 className="text-[17px] text-[#2B4D76] font-medium leading-snug">                Un servizio completo per orientarti nel complesso panorama normativo, 
+                <h2 className="text-[17px] text-[#2B4D76] font-medium leading-snug">                
+                    Un servizio completo per orientarti nel complesso panorama normativo, 
                 garantendo il corretto iter autorizzativo per ogni tipologia di intervento.
 
                 </h2>

@@ -26,8 +26,9 @@ export default function AboutPage() {
                     Agevolazioni Fiscali per la Tua Casa
                 </h1>
                 <div className="glow-box bg-[#A0D1F6]/10 p-2 rounded-xl transition-all">
-                <h2 className="text-[19px] text-[#2B4D76] font-medium leading-snug">                Un servizio completo per orientarti nel complesso panorama normativo, 
-                garantendo il corretto iter autorizzativo per ogni tipologia di intervento.
+                <h2 className="text-[19px] text-[#2B4D76] font-medium leading-snug">                
+                Un supporto strategico per sfruttare gli incentivi previsti 
+                dalla legge, trasformando i tuoi interventi in opportunità di risparmio.
 
                 </h2>
                 </div>
