@@ -1,17 +1,45 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Home, ArrowUp } from 'lucide-react';
+import { Home } from 'lucide-react';
 import Layout from '../components/layout/Layout';
 import BonusRistrutturazioni from '../components/sections/BonusRistrutturazioni';
 import EcoBonus from '../components/sections/EcoBonus';
 import BonusMobili from '../components/sections/BonusMobili';
 import SismaBonus from '../components/sections/SismaBonus';
+import { ArrowUp } from 'lucide-react';
+
 
 export default function AboutPage() {
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     useEffect(() => {
-        // ... useEffect invariato ...
+        const handleHashScroll = () => {
+            if(window.location.hash) {
+                const id = window.location.hash.replace('#', '')
+                const element = document.getElementById(id)
+                if(element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        })
+                    }, 300)
+                }
+            }
+        }
+
+        const checkScrollTop = () => {
+            setShowScrollButton(window.pageYOffset > 200)
+        }
+
+        handleHashScroll()
+        window.addEventListener('hashchange', handleHashScroll)
+        window.addEventListener('scroll', checkScrollTop)
+        
+        return () => {
+            window.removeEventListener('hashchange', handleHashScroll)
+            window.removeEventListener('scroll', checkScrollTop)
+        }
     }, [])
 
     const scrollToTop = () => {
@@ -51,11 +79,15 @@ export default function AboutPage() {
                 </Link>
             </div>
 
-            {showScrollButton && (
-                <button onClick={scrollToTop} className="fixed bottom-8 right-8 p-3 bg-[#A0D1F6] text-white rounded-full shadow-lg hover:bg-[#D8EFFD] transition-colors">
-                    <ArrowUp className="w-6 h-6" />
-                </button>
-            )}
+           {/* Bottone Scroll to Top */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-3 bg-[#A0D1F6] text-white rounded-full shadow-lg hover:bg-[#D8EFFD] transition-colors"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
         </Layout>
     )
 }

@@ -12,8 +12,35 @@ export default function Pratiche() {
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     useEffect(() => {
-        // ... resto dello useEffect invariato ...
+        const handleHashScroll = () => {
+            if(window.location.hash) {
+                const id = window.location.hash.replace('#', '')
+                const element = document.getElementById(id)
+                if(element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        })
+                    }, 300)
+                }
+            }
+        }
+
+        const checkScrollTop = () => {
+            setShowScrollButton(window.pageYOffset > 200)
+        }
+
+        handleHashScroll()
+        window.addEventListener('hashchange', handleHashScroll)
+        window.addEventListener('scroll', checkScrollTop)
+        
+        return () => {
+            window.removeEventListener('hashchange', handleHashScroll)
+            window.removeEventListener('scroll', checkScrollTop)
+        }
     }, [])
+
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
