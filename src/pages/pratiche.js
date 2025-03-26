@@ -5,7 +5,7 @@ import Layout from '../components/layout/Layout';
 import Cila from '../components/sections/Cila';
 import Scia from '../components/sections/Scia';
 import PCostruire from '../components/sections/PCostruire';
-import AttestatoAgibilita from '../components/sections/AttestatoAgibilita';
+import SciaAlternativa from '../components/sections/SciaAlternativa';
 import PCatastali from '../components/sections/PCatastali';
 
 export default function Pratiche() {
@@ -61,14 +61,18 @@ export default function Pratiche() {
                 </h2>
                 </div>
                 <p className="text-lg text-[#5F5F5F] mt-5">
-aaaaa
+                {`Tutto il Titolo II del T.U. edilizia (D.P.R. n. 380 del 2001) tratta i titoli abilitativi per regolare gli interventi edilizi. 
+  Questi ad oggi prevedono l'attività di edilizia libera, la comunicazione di inizio lavori asseverata (CILA), la segnalazione certificata 
+  di inizio attività (SCIA) gratuita, la segnalazione certificata di inizio attività (SCIA) onerosa alternativa al permesso di costruire oneroso, 
+  il permesso di costruire (PDC) gratuito od oneroso. Questi titoli costituiscono gli strumenti autorizzativi fondamentali per avviare lavori 
+  in conformità alla legge.`}
                 </p>
             </div>
 
             <Cila id="Cila" />
             <Scia id="Scia" />
             <PCostruire id="PCostruire" />
-            <AttestatoAgibilita id="AttestatoAgibilita" />
+            <SciaAlternativa id="SciaAlternativa" />
             <PCatastali id="PCatastali" />
 
             

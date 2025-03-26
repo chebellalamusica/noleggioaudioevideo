@@ -27,7 +27,6 @@ export default function Home() {
       <Rilievidrone />
       <ContactForm />
 
-      {/* Bottone Scroll to Top */}
       {showScrollButton && (
         <button
           onClick={scrollToTop}

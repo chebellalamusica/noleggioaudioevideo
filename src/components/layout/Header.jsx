@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
+
 export default function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const navItems = [
@@ -43,6 +44,7 @@ export default function Header() {
         <div className="space-y-2">
           <h1 className="text-5xl font-semibold m-0">FRANCESCO BALESTRA</h1>
           <p className="text-2xl font-mono text-[#718096]-600">ARCHITETTO IUNIOR</p>
+          
         </div>
 
         <div className=" text-[17px] flex flex-wrap justify-center gap-4" id="contact-info">

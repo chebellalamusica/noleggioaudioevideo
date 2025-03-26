@@ -14,7 +14,7 @@ const pratiche = [
     { name: 'CILA', id: 'Cila' },
     { name: 'SCIA', id: 'Scia' },
     { name: 'PERMESSO DI COSTRUIRE', id: 'PCostruire' },
-    { name: 'SCIA sostitutiva PdC', id: 'AttestatoAgibilita' },
+    { name: 'SCIA sostitutiva PdC', id: 'SciaAlternativa' },
     { name: 'PRATICHE CATASTALI', id: 'PCatastali' },
 ]
 
@@ -22,8 +22,8 @@ export default function PEdilizie() {
     const router = useRouter()
 
     const handleAnchorLink = (path, hash) => {
-        router.push({ pathname: path, hash: hash })
-            .then(() => {
+        router.push({ pathname: path, hash: hash }).then(() => {
+            setTimeout(() => { // Aggiunto timeout per garantire il caricamento della pagina
                 const element = document.getElementById(hash)
                 if(element) {
                     element.scrollIntoView({ 
@@ -31,27 +31,33 @@ export default function PEdilizie() {
                         block: 'start' 
                     })
                 }
-            })
+            }, 100)
+        })
     }
 
     return (
         <Section id="edilizie" title="PRATICHE EDILIZIE" icon={Book}>
             <article className="space-y-2">
-                <p className="text-[17px] text-[#5F5F5F] animate-wave ">
-                Offriamo supporto completo nelle pratiche edilizie, dalla fase progettuale
-                 alla presentazione delle domande presso glie enti competenti. 
-                <br /> 
-Affianchiamo i propri clienti per una conformità certa con le normative vigenti, per
-ottenere le autorizzazioni richieste dagli enti competenti.               
+                <div className="text-[17px] text-[#5F5F5F] animate-wave space-y-3"> {/* Cambiato da p a div */}
+                    <p>
+                        Offriamo supporto completo nelle pratiche edilizie, dalla fase progettuale
+                        alla presentazione delle domande presso glie enti competenti.
+                    </p>
+                    
+                    <p>
+                        Affianchiamo i propri clienti per una conformità certa con le normative vigenti, per
+                        ottenere le autorizzazioni richieste dagli enti competenti.
+                    </p>
 
-Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolamenti e
- iter burocratici può essere complesso. Per questo mi dedico ad affiancare privati e
-  professionisti nella gestione delle pratiche, dalla progettazione agli adempimenti finali.
+                    <div className="h-2" /> {/* Sostituito div con height con classe Tailwind */}
 
-  Ci occupiamo della corretta compilazione delle pratiche edilizie per l'ottenimento dei titoli
-   abilitativi: CILA, SCIA, Permesso di Costruire, SCIA alternativa al PdC.
- 
-</p>
+                    <p>
+                        Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolamenti e
+                        iter burocratici può essere complesso. Per questo ci dedichiamo ad affiancare privati e
+                        professionisti nella gestione delle pratiche, dalla progettazione agli adempimenti finali.
+                    </p>
+                </div>
+
                 <div className="flex flex-wrap gap-4 justify-between">
                     {/* Colonna Pratiche Edilizie */}
                     <div className="flex-1 min-w-[300px] border-2 border-[#A0D1F6]/20 rounded-lg p-1 space-y-3 transition-all duration-300 hover:border-[#A0D1F6]/25">
@@ -70,9 +76,9 @@ Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolament
                                     key={index}
                                     className="relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave"
                                     style={{ 
-                                      animationDelay: `${300 + (index * 150)}ms`,
-                                   
-                                    }}                                >
+                                        animationDelay: `${300 + (index * 150)}ms`
+                                    }}
+                                >
                                     <span className="absolute left-0 text-[#A0D1F6] text-[18px]">▹</span>
                                     <button
                                         onClick={() => handleAnchorLink('/pratiche', item.id)}
@@ -100,7 +106,10 @@ Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolament
                             {incentivi.map((item, index) => (
                                 <li
                                     key={index}
-                                    className={`relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave delay-${300 + (index * 150)}`}
+                                    className="relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave"
+                                    style={{ 
+                                        animationDelay: `${300 + (index * 150)}ms`
+                                    }}
                                 >
                                     <span className="absolute left-0 text-[#A0D1F6] text-[18px]">▹</span>
                                     <button
