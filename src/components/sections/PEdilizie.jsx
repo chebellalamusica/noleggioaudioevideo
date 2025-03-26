@@ -68,8 +68,11 @@ Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolament
                             {pratiche.map((item, index) => (
                                 <li
                                     key={index}
-                                    className={`relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave delay-${300 + (index * 150)}`}
-                                >
+                                    className="relative pl-5 text-[#5F5F5F] hover:translate-x-1 transition-transform animate-wave"
+                                    style={{ 
+                                      animationDelay: `${300 + (index * 150)}ms`,
+                                   
+                                    }}                                >
                                     <span className="absolute left-0 text-[#A0D1F6] text-[18px]">▹</span>
                                     <button
                                         onClick={() => handleAnchorLink('/pratiche', item.id)}
