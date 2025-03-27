@@ -54,6 +54,20 @@ export default function Privacy() {
           </section>
 
           <section>
+  <h2 className="text-xl font-semibold mb-3"> Diritti dell&apos;Interessato</h2>
+  <p>
+    Puoi esercitare i diritti GDPR (accesso, rettifica, cancellazione, limitazione, 
+    opposizione, portabilità) scrivendo a <br />
+    <a 
+                href="mailto:francescobalestrapd@gmail.com" 
+                className="text-[#A0D1F6] hover:underline"
+              >
+                 francescobalestrapd@gmail.com
+              </a>
+  </p>
+</section>
+          
+          <section>
             <h2 className="text-xl font-semibold mb-3">Sicurezza Dati</h2>
             <p>
               Utilizziamo certificati SSL, backup crittografati e accessi protetti da password. 

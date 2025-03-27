@@ -65,7 +65,7 @@ export default function Header() {
 
       <div className="relative z-20 space-y-8 container mx-auto px-4">
         <div className="space-y-2">
-          <h1 className="text-5xl font-semibold m-0">FRANCESCO BALESTRA</h1>
+          <h1 className="text-5xl font-semibold m-0">FRANCESCO BALESTRA PADOVA</h1>
           <p className="text-2xl font-mono text-[#718096]-600">ARCHITETTO IUNIOR</p>
         </div>
 
