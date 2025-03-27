@@ -1,9 +1,9 @@
-import { circledot } from 'lucide-react';
+import { CircleDot } from 'lucide-react';
 import Section from '../ui/Section';
 
 export default function Scia ({ id }) {
   return (
-    <Section id={id} title="SCIA" icon={circledot}>
+    <Section id={id} title="SCIA" icon={CircleDot}>
       <article className="space-y-2">
         <p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
         Sono realizzabili mediante SCIA gratuita gli interventi di:

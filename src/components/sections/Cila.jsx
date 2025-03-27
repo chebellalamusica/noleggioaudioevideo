@@ -1,9 +1,9 @@
-import { circledot } from 'lucide-react';
+import { CircleDot } from 'lucide-react';
 import Section from '../ui/Section';
 
 export default function Cila({ id }) {
   return (
-    <Section id={id} title="CILA" icon={circledot}>
+    <Section id={id} title="CILA" icon={CircleDot}>
       <article className="space-y-2">
         <p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
         L'articolo 6-bis disciplina le attività di edilizia libera soggette
