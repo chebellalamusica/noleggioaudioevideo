@@ -41,12 +41,12 @@ export default function PEdilizie() {
                 <div className="text-[17px] text-[#5F5F5F] animate-wave space-y-3"> {/* Cambiato da p a div */}
                     <p>
                         Offriamo supporto completo nelle pratiche edilizie, dalla fase progettuale
-                        alla presentazione delle domande presso glie enti competenti.
+                        alla presentazione delle domande presso gli enti competenti.
                     </p>
                     
                     <p>
                         Affianchiamo i propri clienti per una conformità certa con le normative vigenti, per
-                        ottenere le autorizzazioni richieste dagli enti competenti.
+                        ottenere le autorizzazioni richieste.
                     </p>
 
                     <div className="h-2" /> {/* Sostituito div con height con classe Tailwind */}
