@@ -31,8 +31,8 @@ costruire oneroso,
  compresi ovviamente il pagamento del contributo commisurato all'incidenza
   degli oneri di urbanizzazione, e il contributo commisurato al costo di costruzione
 Disciplina della SCIA onerosa
-<br />
-<br />
+</p>
+<p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
 La disciplina della SCIA onerosa prevede che il proprietario dell'immobile o l'avente titolo presenta almeno 30 giorni prima, dell'effettivo 
 inizio dei lavori allo sportello unico la SCIA onerosa,
  accompagnata dalla documentazione prevista anche dal

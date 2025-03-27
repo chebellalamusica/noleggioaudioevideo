@@ -48,9 +48,7 @@ export default function PEdilizie() {
                         Affianchiamo i propri clienti per una conformità certa con le normative vigenti, per
                         ottenere le autorizzazioni richieste.
                     </p>
-
-                    <div className="h-2" /> {/* Sostituito div con height con classe Tailwind */}
-
+                    
                     <p>
                         Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolamenti e
                         iter burocratici può essere complesso. Per questo ci dedichiamo ad affiancare privati e

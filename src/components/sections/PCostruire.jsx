@@ -19,8 +19,9 @@ export default function PCostruire ({ id }) {
 <p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
 
 Per un approfondimento sulle pratiche edilizie e i relativi requisiti, si rimanda alla Tabella A (allegata al D.Lgs. 222/2016 – Sezione II - Edilizia), con particolare riferimento alle tipologie di intervento e alle procedure operative definite dalla normativa, nonché alle direttive e leggi vigenti aggiornate.
-   <br />  <br />
-   Il termine per l'inizio dei lavori non può essere superiore ad un anno dal rilascio del titolo e deve essere comunicato obbligatoriamente dal direttore dei lavori; quello di ultimazione, entro il quale l'opera deve essere completata, non può superare i tre anni dall'inizio dei lavori e deve essere anch'esso comunicato dal direttore dei lavori.
+  </p>
+  <p className="text-[17px] text-[#5F5F5F] animate-wave delay-150">
+  Il termine per l'inizio dei lavori non può essere superiore ad un anno dal rilascio del titolo e deve essere comunicato obbligatoriamente dal direttore dei lavori; quello di ultimazione, entro il quale l'opera deve essere completata, non può superare i tre anni dall'inizio dei lavori e deve essere anch'esso comunicato dal direttore dei lavori.
    <br />
    Il rilascio del permesso di costruire, nei casi previsti, comporta la corresponsione di:
    
