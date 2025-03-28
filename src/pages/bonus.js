@@ -6,6 +6,7 @@ import BonusRistrutturazioni from '../components/sections/BonusRistrutturazioni'
 import EcoBonus from '../components/sections/EcoBonus';
 import BonusMobili from '../components/sections/BonusMobili';
 import SismaBonus from '../components/sections/SismaBonus';
+import BonusBarriereArchitettoniche from '../components/sections/BonusBarriereArchitettoniche';
 
 export default function AboutPage() {
     const [showScrollButton, setShowScrollButton] = useState(false);
@@ -73,6 +74,7 @@ export default function AboutPage() {
             <EcoBonus id="ecobonus" />
             <BonusMobili id="bonusmobili" />
             <SismaBonus id="sismabonus" />
+            <BonusBarriereArchitettoniche id="bonusbarrierearchitettoniche" />
 
             <div className="container mx-auto px-4 max-w-3xl mt-8 mb-12 text-center">
                 <Link 

@@ -8,6 +8,7 @@ const incentivi = [
     { name: 'ECOBONUS', id: 'ecobonus' },
     { name: 'BONUS MOBILI', id: 'bonusmobili' },
     { name: 'SISMABONUS', id: 'sismabonus' },
+    { name: 'BONUS BARRIERE ARCHITETTONICHE', id: 'bonusbarrierearchitettoniche' },
 ]
 
 const pratiche = [
@@ -40,8 +41,8 @@ export default function PEdilizie() {
             <article className="space-y-2">
                 <div className="text-[17px] text-[#5F5F5F] animate-wave space-y-3"> {/* Cambiato da p a div */}
                     <p>
-                        Offriamo supporto completo nelle pratiche edilizie, dalla fase progettuale
-                        alla presentazione delle domande presso gli enti competenti.
+                        Offriamo supporto completo nelle pratiche edilizie e catastali, dalla progettazione alla gestione integrale degli adempimenti tecnico-burocratici, incluse agibilità, condoni, variazioni catastali e ogni necessaria attività collaterale.
+                        
                     </p>
                     
                     <p>
@@ -51,8 +52,7 @@ export default function PEdilizie() {
                     
                     <p>
                         Le normative edilizie cambiano continuamente, e orientarsi tra leggi, regolamenti e
-                        iter burocratici può essere complesso. Per questo ci dedichiamo ad affiancare privati e
-                        professionisti nella gestione delle pratiche, dalla progettazione agli adempimenti finali.
+                        iter burocratici può essere complesso. Per questo ci dedichiamo nella gestione delle pratiche, dalla progettazione agli adempimenti finali.
                     </p>
                 </div>
 
@@ -96,7 +96,7 @@ export default function PEdilizie() {
                                 href="/bonus"
                                 className="text-[18px] text-[#A0D1F6] font-medium animate-wave delay-150 hover:underline transition-colors"
                             >
-                                PRINCIPALI BONUS EDILIZI ITALIANI ATTUALMENTE IN VIGORE
+                                PRINCIPALI BONUS EDILIZI ITALIANI
                             </Link>
                         </div>
                         
