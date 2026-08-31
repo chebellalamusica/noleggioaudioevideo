@@ -271,7 +271,7 @@ export default function Home() {
               <p className="text-xs text-[#2d2d2d] leading-relaxed">
                 {isForfaitActive ? (
                   <>
-                    <strong className="text-[#ff8c00]">Soglia di 300 € superata!</strong> La somma delle cauzioni sarebbe di {rawTotals.cauzione} €, ma il forfait ha bloccato l'importo massimo a <strong>300 €</strong> (risparmi {risparmioCauzione} € di cauzione).
+                    <strong className="text-[#ff8c00]">Soglia di 300 € superata!</strong> La somma delle cauzioni sarebbe di {rawTotals.cauzione} €, ma il forfait ha bloccato l&apos;importo massimo a <strong>300 €</strong> (risparmi {risparmioCauzione} € di cauzione).
                   </>
                 ) : (
                   <>
