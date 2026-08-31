@@ -1,43 +1,33 @@
 import { useEffect, useState } from 'react';
-import { montserrat } from '@/lib/fonts'; 
 import Footer from './Footer';
 import Header from './Header';
 
-export default function Layout({ children, noHeader = false }) { // Aggiungi questa prop
+export default function Layout({ children, noHeader = false }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsMounted(true);
-    }, 300);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className={`${montserrat.variable} font-sans min-h-screen bg-gray-50 scroll-pt-[100px]`}>
-      <div className="min-h-screen flex flex-col">
-        {/* Header Animato - Solo se noHeader è false */}
-        {!noHeader && (
-          <div className={`
-            w-full flex flex-col z-50 
-            transition-transform duration-500 
-            ease-[cubic-bezier(0.33,1,0.68,1)]
-            ${isMounted ? 'translate-y-0' : '-translate-y-full'}
-          `}>
-            <Header />
-          </div>
-        )}
-
-        {/* Contenuto Principale */}
-        <div className="flex-grow pt-0">
-          <main className="container mx-auto px-4 py-8 max-w-3xl">
-            {children}
-          </main>
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden font-sans antialiased" style={{background: 'var(--background)', color: 'var(--foreground)'}}>
+      {/* Header */}
+      {!noHeader && (
+        <div className={`w-full z-50 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${isMounted ? 'translate-y-0' : '-translate-y-20'}`}>
+          <Header />
         </div>
+      )}
+      
+      {/* Contenuto Principale */}
+      <main className="flex-grow flex flex-col w-full px-4 md:px-6 pt-16 pb-16 relative z-10">
+        {children}
+      </main>
 
-        {/* Footer */}
-        <Footer />
-      </div>
+      {/* Footer */}
+      <Footer />
     </div>
-  )
+  );
 }

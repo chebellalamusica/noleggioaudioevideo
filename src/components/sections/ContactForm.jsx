@@ -1,41 +1,75 @@
-import { Send } from 'lucide-react';
-import Section from '../ui/Section';
 import Input from '../ui/Input';
+import { useState } from 'react';
 
-export default function ContactForm() {
-	const handleSubmit = (e) => {
-		e.preventDefault();
+export default function ContactForm({ selectedSummary = '—' }) {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState('');
 
-		// Ottieni i dati dal form
-		const formData = new FormData(e.target);
-		const name = formData.get('name');
-		const email = formData.get('email');
-		const subject = formData.get('subject');
-		const message = formData.get('message');
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-		// Crea l'URL mailto con i dati del form
-		const mailtoUrl = `mailto:francescobalestrapd@email.com?subject=${encodeURIComponent(
-			subject,
-		)}&body=${encodeURIComponent(`Da: ${name}\nEmail: ${email}\n\n${message}`)}`;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    if (!form.name || !form.email || !form.message) {
+      setError('Compila Nome, Email e Messaggio');
+      return;
+    }
 
-		// Apri il client di posta predefinito
-		window.location.href = mailtoUrl;
-	};
+    setLoading(true);
+    try {
+      // Invia anche il riepilogo selezionato
+      const body = { ...form, service: selectedSummary };
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || data.message || 'Errore invio');
 
-	return (
-		<Section id="contatti" title="Contattami" icon={Send}>
-			<form onSubmit={handleSubmit} className="space-y-6">
-				<Input label="Nome" id="name" required />
-				<Input label="Email" id="email" type="email" required />
-				<Input label="Oggetto" id="subject" required />
-				<Input label="Messaggio" id="message" type="textarea" rows="5" required />
-				<button
-					type="submit"
-					className="inline-flex items-center gap-2 bg-[#A0D1F6] text-white px-4 py-2 rounded-lg hover:bg-[#D8EFFD] transition-colors"
-				>
-					<Send size={18} /> Invia messaggio
-				</button>
-			</form>
-		</Section>
-	);
+      setSent(true);
+      setForm({ name: '', email: '', phone: '', subject: '', message: '' });
+      setTimeout(() => setSent(false), 4000);
+    } catch (err) {
+      setError(err.message || 'Errore di rete');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form className="space-y-6 max-w-lg mx-auto" onSubmit={handleSubmit}>
+      <Input label="Nome" id="name" name="name" value={form.name} onChange={handleChange} required />
+      <Input label="Email" id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
+      <Input label="Telefono" id="phone" name="phone" value={form.phone} onChange={handleChange} />
+      <Input label="Oggetto" id="subject" name="subject" value={form.subject} onChange={handleChange} />
+      <Input label="Messaggio" id="message" name="message" type="textarea" rows={5} value={form.message} onChange={handleChange} required />
+
+      {/* Visualizzazione Riepilogo Selezione per l'utente */}
+      <div className="p-3 bg-[#f5f6fa] border border-[#e8eaed] rounded-xl text-sm text-[#2d2d2d]">
+        <span className="font-bold text-[#1a1a1a]">Riepilogo selezione:</span> {selectedSummary}
+      </div>
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full h-12 bg-[#ff8c00] text-white font-extrabold text-base rounded-xl shadow-md hover:bg-[#e67e00] transition-all flex items-center justify-center cursor-pointer disabled:opacity-50"
+      >
+        {loading ? 'Invio…' : 'Invia richiesta'}
+      </button>
+
+      {sent && (
+        <div className="text-[#ff8c00] text-center font-bold animate-fadeUp">
+          Messaggio inviato! Ti risponderemo presto.
+        </div>
+      )}
+      {error && (
+        <div className="text-red-600 text-center font-bold animate-fadeUp">
+          {error}
+        </div>
+      )}
+    </form>
+  );
 }

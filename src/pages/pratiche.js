@@ -7,9 +7,12 @@ import Scia from '../components/sections/Scia';
 import PCostruire from '../components/sections/PCostruire';
 import SciaAlternativa from '../components/sections/SciaAlternativa';
 import PCatastali from '../components/sections/PCatastali';
+import useOnScrollAnimation from '../hooks/useOnScrollAnimation';
 
 export default function Pratiche() {
     const [showScrollButton, setShowScrollButton] = useState(false);
+
+    useOnScrollAnimation('.animate-on-scroll');
 
     useEffect(() => {
         const handleHashScroll = () => {
@@ -71,20 +74,26 @@ export default function Pratiche() {
 
             <Cila id="Cila" />
             <Scia id="Scia" />
-            <PCostruire id="PCostruire" />
-            <SciaAlternativa id="SciaAlternativa" />
-            <PCatastali id="PCatastali" />
+            <div className="animate-on-scroll">
+                <PCostruire id="PCostruire" />
+            </div>
+            <div className="animate-on-scroll">
+                <SciaAlternativa id="SciaAlternativa" />
+            </div>
+            <div className="animate-on-scroll">
+                <PCatastali id="PCatastali" />
+            </div>
 
             
             <div className="container mx-auto px-4 max-w-3xl mt-8 mb-12 text-center">
-                <Link href="/" className="inline-flex items-center gap-2 bg-[#A0D1F6] text-white px-6 py-3 rounded-lg hover:bg-[#D8EFFD] transition-colors text-lg">
+                <Link href="/" className="inline-flex items-center gap-2 bg-gold text-navy px-6 py-3 rounded-lg hover:bg-sage transition-colors text-lg">
                     <Home className="w-5 h-5" />
                     Torna alla Pagina Principale
                 </Link>
             </div>
 
             {showScrollButton && (
-                <button onClick={scrollToTop} className="fixed bottom-8 right-8 p-3 bg-[#A0D1F6] text-white rounded-full shadow-lg hover:bg-[#D8EFFD] transition-colors">
+                <button onClick={scrollToTop} className="fixed bottom-8 right-8 p-3 bg-gold text-navy rounded-full shadow-lg hover:bg-sage transition-colors">
                     <ArrowUp className="w-6 h-6" />
                 </button>
             )}

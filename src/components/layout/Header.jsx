@@ -1,13 +1,15 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Header() {
   const [isMounted, setIsMounted] = useState(false);
+  
+  // Ordine invertito: Pacchetti prima di Listino e ancore attive per lo scroll
   const navItems = [
-    { name: 'Pratiche Edilizie', href: '#edilizie' },
-    { name: 'Rilievi Drone', href: '#rilievi' },
+    { name: 'Home', href: '/' },
+    { name: 'Pacchetti', href: '#pacchetti' },
+    { name: 'Listino', href: '#listino' },
     { name: 'Contatti', href: '#contatti' }
   ];
 
@@ -15,84 +17,53 @@ export default function Header() {
     setIsMounted(true);
   }, []);
 
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <header className={`
-      w-full flex flex-col 
-      bg-[#A0D1F6]/50
-      text-[#49545A] py-8 text-center
-      shadow-[0_-20px_30px_-10px_rgba(125,211,252,0.25)]
-      mask-fade
-      transition-transform duration-500 
-      ease-out-cubic
-      ${isMounted ? 'translate-y-0' : '-translate-y-full'}
-    `}>
-      
-      {/* Microdati specifici per Italia - Nascosti ma leggibili dai crawler */}
-      <div itemScope itemType="https://schema.org/Person" className="hidden">
-        <meta itemProp="name" content="Francesco Balestra" />
-        <meta itemProp="jobTitle" content="Architetto Iunior" />
-        
-        <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-          <meta itemProp="streetAddress" content="Via XX Settembre" /> {/* MODIFICA QUI */}
-          <meta itemProp="addressLocality" content="Padova" />
-          <meta itemProp="postalCode" content="35122" />
-          <meta itemProp="addressCountry" content="IT" />
+    <header
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-[#e8eaed] transition-all duration-700 ${isMounted ? 'translate-y-0' : '-translate-y-20'}`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-row justify-between items-center">
+        <div className="flex items-center gap-4">
+          <Image
+            src="/logo-av.png"
+            alt="ProAV Noleggio"
+            width={48}
+            height={48}
+            className="rounded-md shadow-sm"
+          />
+          <span className="text-2xl md:text-3xl font-display font-bold text-[#1a1a1a] tracking-tight animate-fadeIn">
+            ProAV Noleggio
+          </span>
         </div>
-
-        <div itemProp="contactPoint" itemScope itemType="https://schema.org/ContactPoint">
-          <meta itemProp="email" content="francescobalestrapd@gmail.com" />
-          <meta itemProp="telephone" content="+39-346-7923442" />
-          <meta itemProp="contactType" content="customer service" />
-          <meta itemProp="areaServed" content="IT-34" /> {/* Provincia PD */}
-          <meta itemProp="availableLanguage" content="Italian" />
-        </div>
-
-        <meta itemProp="image" content="https://www.archbalestrafrancesco.it/logo.jpg" />
-      </div>
-
-      {/* Contenuto originale invariato */}
-      <div className="absolute inset-0 z-10">
-        <Image
-          src="/5184157.webp"
-          alt="Sfondo texture professionale"
-          fill
-          priority
-          className="object-cover opacity-70 mix-blend-luminosity"
-          sizes="100vw" 
-          quality={75}
-        />
-      </div>
-
-      <div className="relative z-20 space-y-8 container mx-auto px-4">
-        <div className="space-y-2">
-          <h1 className="text-5xl font-semibold m-0">FRANCESCO BALESTRA PADOVA</h1>
-          <p className="text-2xl font-mono text-[#718096]-600">ARCHITETTO IUNIOR</p>
-        </div>
-
-        <div className="text-[17px] flex flex-wrap justify-center gap-4" id="contact-info">
-          <a href="mailto:francescobalestrapd@email.com" className="hover:underline">
-            <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
-              <Mail size={18} /> francescobalestrapd@gmail.com
-            </p>
-          </a>
-          <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
-            <Phone size={18} /> +39 3467923442
-          </p>
-          <p className="flex items-center gap-2 bg-black/3 px-3 py-1 rounded-[2px_12px_2px_12px]">
-            <MapPin size={18} /> Padova, Italia
-          </p>
-        </div>
-
-        <nav className="flex flex-wrap justify-center gap-4 mb-8">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="px-7 py-1 rounded-sm border-1 border-black/2 hover:border-[#D8EFFD] transition-all bg-black/4 hover:bg-[#D8EFFD]"
-            >
-              {item.name}
-            </a>
-          ))}
+        <nav className="hidden md:flex gap-6">
+          {navItems.map((item) => {
+            const isHome = item.name === 'Home';
+            return (
+              <a
+                key={item.href + item.name}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={`relative text-base font-semibold px-3 py-2 rounded-lg transition-colors duration-200 hover:bg-[#f5f6fa] hover:text-[#ff8c00] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb347] cursor-pointer ${
+                  isHome ? 'text-[#ff8c00]' : 'text-[#4a4a4a]'
+                }`}
+              >
+                {item.name}
+              </a>
+            );
+          })}
         </nav>
       </div>
     </header>

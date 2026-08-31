@@ -1,93 +1,110 @@
 @import 'tailwindcss';
-@layer utilities {
-  .mask-fade {
-    mask-image: linear-gradient(to bottom, 
-      rgba(0,0,0,1) 0%, 
-      rgba(0,0,0,1) 85%, 
-      rgba(0,0,0,0) 100%
-    );
-    -webkit-mask-image: linear-gradient(to bottom, 
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 85%,
-      rgba(0,0,0,0) 100%
-    );
-  }
-}
-@keyframes wave-entrance {
-    0% {
-        transform: translateX(-10%) scale(0.95);
-        opacity: 0;
-        filter: blur(10px);
-    }
-    100% {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-        filter: blur(0);
-    }
-}
-.glow-box {
-  position: relative;
-}
-.glow-box::after {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, #A0D1F610, transparent 50%);
-  filter: blur(8px);
-  z-index: -1;
-  border-radius: 1rem;
-}
-.animate-wave {
-    animation: wave-entrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    opacity: 0;
-}
-
-.delay-150 { animation-delay: 150ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-450 { animation-delay: 450ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-750 { animation-delay: 750ms; }
-@keyframes slideInFromLeft {
-	from {
-	  transform: translateX(-20%);
-	  opacity: 0;
-	}
-	to {
-	  transform: translateX(0);
-	  opacity: 1;
-	}
-  }
-  
-  .slide-in {
-	animation: slideInFromLeft 1.8s ease-out forwards;
-  }
-  
-  .delay-1 { animation-delay: 0.3s; }
-  .delay-2 { animation-delay: 0.6s; }
-  .delay-3 { animation-delay: 0.9s; }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', system-ui, -apple-system, sans-serif;
+  --background: #ffffff; /* white background */
+  --foreground: #1a1a1a; /* very dark text for readability */
+  --foreground-light: #4a4a4a; /* medium grey for secondary text */
+  --primary: #ff8c00;    /* professional orange accent */
+  --primary-light: #ffb347; /* lighter orange */
+  --muted: #f5f6fa;      /* light grey panels */
+  --border: #e8eaed;     /* light border */
+  --surface: #fcfcfd;    /* card background */
 }
 
 body {
-  background: var(--background);
+  font-family: var(--font-main);
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
   color: var(--foreground);
 }
 
-@media print {
-	footer,
-	button,
-	#contattami {
-		display: none;
-	}
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Spazio per l'header */
+/* Contenitore principale */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-section {
-  scroll-margin-top: 6rem; /* Allineamento sezioni */
+/* Elementi interattivi puliti e moderni */
+button, input, textarea {
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  color: var(--foreground);
+  transition: all 0.2s ease;
+}
+
+button:hover, input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 2px 8px rgba(255,140,0,0.15);
+}
+
+/* Card standard pulite */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Divider neutro */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+
+/* Animazioni di ingresso */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scrollbar standard e pulita (senza verde) */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0d4d9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8acb1;
 }
