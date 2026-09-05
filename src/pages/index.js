@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Layout from '../components/layout/Layout';
 import ContactForm from '../components/sections/ContactForm';
 import { Package, Sparkles, ShieldCheck, Info } from 'lucide-react';
@@ -10,7 +11,7 @@ const listinoAttrezzatura = [
   { id: 3, cat: 'MIXER', desc: 'Yamaha MG06X', valore: '180 €', affittoNum: 20, affittoStr: '20 €', cauzioneNum: 100, cauzioneStr: '100 €', image: '/MG06X.jpg' },
   { id: 4, cat: 'MIXER', desc: 'Ricevitore Bluetooth (Jack / XLR)', valore: '60 €', affittoNum: 0, affittoStr: 'Incluso', cauzioneNum: 0, cauzioneStr: '—', image: 'https://images.unsplash.com/photo-1611339555312-e607c04352fd?w=300&h=300&fit=crop' },
   { id: 5, cat: 'PROIETTORE', desc: 'Epson EB-FH52', valore: '700 €', affittoNum: 50, affittoStr: '50 €', cauzioneNum: 140, cauzioneStr: '140 €', image: '/epson eb-fh52.jpg' },
-  { id: 6, cat: 'PROIETTORE', desc: 'Schermo Proiettore', valore: '130 €', affittoNum: 30, affittoStr: '30 €', cauzioneNum: 0, cauzioneStr: '—', image: 'https://images.unsplash.com/photo-1559056981-0c02155194d0?w=300&h=300&fit=crop' },
+  { id: 6, cat: 'PROIETTORE', desc: 'Schermo Proiettore', valore: '130 €', affittoNum: 30, affittoStr: '30 €', cauzioneNum: 100, cauzioneStr: '100 €', image: '/schermoproiettore.jpg' },
   { id: 7, cat: 'MICROFONI', desc: 'AKG WMS 40 Mini Dual (2 unità)', valore: '140 €', affittoNum: 30, affittoStr: '30 € (15 € × 2)', cauzioneNum: 0, cauzioneStr: '—', image: '/microfoni.jpg' },
   { id: 8, cat: 'CAVI & BORSA', desc: 'Cavi Alimentazione & Prolunghe', valore: '~87,50 €', affittoNum: 0, affittoStr: 'Incluso', cauzioneNum: 0, cauzioneStr: '—', image: 'https://images.unsplash.com/photo-1591047989835-2b6b5a44b822?w=300&h=300&fit=crop' },
 ];
@@ -93,13 +94,17 @@ export default function Home() {
 
   return (
     <Layout>
-      <header className="max-w-6xl mx-auto px-6 pt-24 pb-6 text-center">
-        <span className="inline-block mb-3 px-3 py-1 bg-[#f5f6fa] text-[#ff8c00] font-semibold text-xs uppercase rounded-full border border-[#e8eaed]">
-          Noleggio Impianti Audio & Video
-        </span>
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-2 text-[#1a1a1a]">LISTINO NOLEGGIO ATTREZZATURA</h1>
-        <p className="text-base text-[#2d2d2d] max-w-2xl mx-auto font-medium">Scegli tra pacchetti consigliati oppure personalizza il set spuntando i singoli articoli. Sotto trovi il riepilogo dei costi e le note sul deposito cauzionale.</p>
-      </header>
+      <section className="relative w-full py-16 bg-gradient-to-b from-[#f5f6fa] to-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1 className="text-6xl md:text-7xl font-black mb-4 text-[#ff8c00] leading-tight">
+            Noleggio Impianti<br/>Audio &amp; Video
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1a1a1a]">LISTINO NOLEGGIO ATTREZZATURA</h2>
+          <p className="text-lg text-[#2d2d2d] max-w-2xl mx-auto font-medium leading-relaxed">
+            Scegli tra pacchetti consigliati oppure personalizza il set spuntando i singoli articoli. Sotto trovi il riepilogo dei costi e le note sul deposito cauzionale.
+          </p>
+        </div>
+      </section>
 
       {/* Sezione Pacchetti con ID per l'ancora */}
       <section id="pacchetti" className="max-w-6xl mx-auto px-6 py-6 scroll-mt-20">
@@ -157,7 +162,7 @@ export default function Home() {
                   {/* Contenitore immagine con object-contain, padding e animazione di riduzione morbida */}
                   <div className="w-full h-48 bg-white overflow-hidden flex items-center justify-center border-b border-[#e8eaed] p-3">
                     <img 
-                      src={item.image} 
+                      src={encodeURI(item.image)} 
                       alt={item.desc} 
                       className="w-full h-full object-contain transition-transform duration-500 ease-in-out hover:scale-[0.92] cursor-pointer" 
                     />
@@ -208,8 +213,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-6 max-w-2xl mx-auto">
-          <div className="p-6 rounded-2xl bg-white border-2 border-[#ff8c00] shadow-md">
+        <div className="mt-6 max-w-[1280px] mx-auto">
+          <div className="p-6 rounded-2xl bg-white border-2 border-[#ff8c00] shadow-md w-full">
             <h4 className="text-lg font-extrabold text-[#1a1a1a] mb-1 text-center">Preventivo Selezionato</h4>
             {activePkg && (
               <p className="text-center text-xs font-bold text-[#ff8c00] mb-4 flex items-center justify-center gap-1">
@@ -286,8 +291,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contatti" className="max-w-3xl mx-auto px-6 py-16 scroll-mt-20">
-        <div className="p-8 rounded-2xl border-2 border-[#ff8c00] bg-white shadow-lg">
+      <section id="contatti" className="max-w-[1280px] mx-auto px-6 py-16 scroll-mt-20">
+        <div className="p-8 rounded-2xl border-2 border-[#ff8c00] bg-white shadow-lg w-full">
           <div className="mb-6 text-center border-b border-[#e8eaed] pb-4">
             <h3 className="text-2xl font-extrabold text-[#1a1a1a]">Richiesta Preventivo / Contatto</h3>
             <p className="text-sm font-semibold text-[#ff8c00] mt-1">Invia il modulo per confermare la disponibilità delle date</p>

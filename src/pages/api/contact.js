@@ -31,71 +31,88 @@ export default async function handler(req, res) {
       });
     }
 
+    const emailUser = process.env.EMAIL_USER;
+    const emailPass = process.env.EMAIL_PASS;
+    const emailTo = process.env.EMAIL_TO || emailUser;
+
+    // Controllo configurazione email
+    if (!emailUser || !emailPass) {
+      console.error('EMAIL_USER or EMAIL_PASS is not set on the deployed server.');
+      return res.status(500).json({
+        error: 'Configurazione email mancante sul server di produzione.',
+        details: 'Imposta EMAIL_USER, EMAIL_PASS e, se serve, EMAIL_TO nelle variabili d\'ambiente del tuo host.'
+      });
+    }
+
     // Preparazione dati per l'invio
     const contactData = {
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
-      phone: phone ? phone.trim() : '',
+      name: String(name).trim(),
+      email: String(email).trim().toLowerCase(),
+      phone: phone ? String(phone).trim() : '',
       subject: subject || 'Richiesta di contatto dal sito web',
-      message: message.trim(),
+      message: String(message).trim(),
       service: service || 'Non specificato',
       timestamp: new Date().toISOString(),
-      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'Unknown',
+      ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'Unknown',
       userAgent: req.headers['user-agent'] || 'Unknown'
     };
 
-    // Log per debugging (in produzione usare un logger appropriato)
-    console.log('Nuova richiesta di contatto ricevuta:', {
-      timestamp: contactData.timestamp,
-      email: contactData.email,
-      
+    // Invio reale con Nodemailer
+    const nodemailer = await import('nodemailer');
+    const transporter = nodemailer.default.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: Number(process.env.SMTP_PORT || 465),
+      secure: process.env.SMTP_SECURE !== 'false',
+      auth: {
+        user: emailUser,
+        pass: emailPass
+      }
     });
 
-// Invio reale con Nodemailer
-const emailUser = process.env.EMAIL_USER;
-const emailPass = process.env.EMAIL_PASS;
-if (!emailUser || !emailPass) {
-  console.error('EMAIL_USER or EMAIL_PASS is not set:', { emailUser, emailPass });
-  return res.status(500).json({ error: 'Email configuration missing on server.' });
-}
+    const mailOptions = {
+      from: `"${contactData.name}" <${emailUser}>`,
+      to: emailTo,
+      replyTo: contactData.email,
+      subject: `[Sito Web] ${contactData.subject}`,
+      text: [
+        'Hai ricevuto un nuovo messaggio dal sito web:',
+        '',
+        `Nome: ${contactData.name}`,
+        `Email: ${contactData.email}`,
+        `Telefono: ${contactData.phone || 'Non inserito'}`,
+        `Servizio: ${contactData.service}`,
+        `Data: ${new Date(contactData.timestamp).toLocaleString('it-IT')}`,
+        '',
+        'Messaggio:',
+        contactData.message
+      ].join('\n'),
+      html: `
+        <h2>Nuova richiesta di contatto dal sito web</h2>
+        <p><strong>Nome:</strong> ${contactData.name}</p>
+        <p><strong>Email:</strong> ${contactData.email}</p>
+        <p><strong>Telefono:</strong> ${contactData.phone || 'Non inserito'}</p>
+        <p><strong>Servizio:</strong> ${contactData.service}</p>
+        <p><strong>Data:</strong> ${new Date(contactData.timestamp).toLocaleString('it-IT')}</p>
+        <h3>Messaggio:</h3>
+        <div style="background:#f5f5f5;padding:16px;border-radius:8px;">${contactData.message.replace(/\n/g, '<br>')}</div>
+        <hr />
+        <p style="font-size:12px;color:#666;">IP: ${contactData.ip}<br />User Agent: ${contactData.userAgent}</p>
+      `
+    };
 
-try {
-  const nodemailer = await import('nodemailer');
-  const transporter = nodemailer.default.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: emailUser,
-      pass: emailPass,
-    },
-  });
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email inviata correttamente:', info.messageId);
 
-  const mailOptions = {
-    from: emailUser,
-    to: emailUser,
-    subject: `[Sito Web] ${contactData.subject}`,
-    text: `Hai ricevuto un nuovo messaggio dal sito web:\n\nNome: ${contactData.name}\nEmail: ${contactData.email}\nData: ${formatDate(contactData.timestamp, { hour: '2-digit', minute: '2-digit' })}\n\nMessaggio:\n${contactData.message}`,
-    html: `<h2>Nuova richiesta di contatto dal sito web</h2><p><strong>Nome:</strong> ${contactData.name}</p><p><strong>Email:</strong> ${contactData.email}</p><p><strong>Data e ora:</strong> ${formatDate(contactData.timestamp, { hour: '2-digit', minute: '2-digit' })}</p><h3>Messaggio:</h3><div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">${contactData.message.replace(/\n/g, '<br>')}</div><hr><p style="font-size: 12px; color: #666;">IP: ${contactData.ip}<br>User Agent: ${contactData.userAgent}</p>`
-  };
-
-  const info = await transporter.sendMail(mailOptions);
-  console.log('sendMail result:', info);
-
-  return res.status(200).json({
-    success: true,
-    message: 'Messaggio inviato con successo',
-    data: {
-      id: info.messageId,
-      timestamp: contactData.timestamp
-    }
-  });
-} catch (error) {
-  console.error('Errore invio mail:', error);
-  return res.status(500).json({ error: 'Failed to send message.', details: error.message });
-}
-
+    return res.status(200).json({
+      success: true,
+      message: 'Messaggio inviato con successo',
+      data: {
+        id: info.messageId,
+        timestamp: contactData.timestamp
+      }
+    });
   } catch (error) {
     console.error('Errore nell\'invio del messaggio di contatto:', error);
-    
     return res.status(500).json({
       error: 'Errore interno del server',
       message: 'Si è verificato un errore durante l\'invio del messaggio. Riprova più tardi.',
@@ -103,8 +120,6 @@ try {
     });
   }
 }
-
-// ...existing code...
 
 // Funzione per salvare nel database (opzionale)
 async function saveContactRequest(contactData) {

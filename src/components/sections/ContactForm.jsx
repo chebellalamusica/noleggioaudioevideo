@@ -40,12 +40,24 @@ export default function ContactForm({ selectedSummary = '—' }) {
   };
 
   return (
-    <form className="space-y-6 max-w-lg mx-auto" onSubmit={handleSubmit}>
-      <Input label="Nome" id="name" name="name" value={form.name} onChange={handleChange} required />
-      <Input label="Email" id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
-      <Input label="Telefono" id="phone" name="phone" value={form.phone} onChange={handleChange} />
-      <Input label="Oggetto" id="subject" name="subject" value={form.subject} onChange={handleChange} />
-      <Input label="Messaggio" id="message" name="message" type="textarea" rows={5} value={form.message} onChange={handleChange} required />
+    <form className="space-y-6 w-full max-w-none mx-auto" onSubmit={handleSubmit}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <div className="md:col-span-1">
+          <Input label="Nome" id="name" name="name" value={form.name} onChange={handleChange} required />
+        </div>
+        <div className="md:col-span-1">
+          <Input label="Telefono e/o Mail" id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
+        </div>
+        <div className="md:col-span-1">
+          <Input label="Oggetto" id="subject" name="subject" value={form.subject} onChange={handleChange} />
+        </div>
+        <div className="md:col-span-1">
+          <Input label="Telefono" id="phone" name="phone" value={form.phone} onChange={handleChange} />
+        </div>
+        <div className="md:col-span-2">
+          <Input label="Messaggio" id="message" name="message" type="textarea" rows={5} value={form.message} onChange={handleChange} required />
+        </div>
+      </div>
 
       {/* Visualizzazione Riepilogo Selezione per l'utente */}
       <div className="p-3 bg-[#f5f6fa] border border-[#e8eaed] rounded-xl text-sm text-[#2d2d2d]">
