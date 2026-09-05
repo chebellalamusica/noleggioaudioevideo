@@ -12,7 +12,7 @@ const listinoAttrezzatura = [
   { id: 4, cat: 'MIXER', desc: 'Ricevitore Bluetooth (Jack / XLR)', valore: '60 €', affittoNum: 0, affittoStr: 'Incluso', cauzioneNum: 0, cauzioneStr: '—', image: 'https://images.unsplash.com/photo-1611339555312-e607c04352fd?w=300&h=300&fit=crop' },
   { id: 5, cat: 'PROIETTORE', desc: 'Epson EB-FH52', valore: '700 €', affittoNum: 50, affittoStr: '50 €', cauzioneNum: 140, cauzioneStr: '140 €', image: '/epson eb-fh52.jpg' },
   { id: 6, cat: 'PROIETTORE', desc: 'Schermo Proiettore', valore: '130 €', affittoNum: 30, affittoStr: '30 €', cauzioneNum: 100, cauzioneStr: '100 €', image: '/schermoproiettore.jpg' },
-  { id: 7, cat: 'MICROFONI', desc: 'AKG WMS 40 Mini Dual (2 unità)', valore: '140 €', affittoNum: 30, affittoStr: '30 € (15 € × 2)', cauzioneNum: 0, cauzioneStr: '—', image: '/microfoni.jpg' },
+  { id: 7, cat: 'MICROFONI', desc: 'AKG WMS 40 Mini Dual (2 unità)', valore: '140 €', affittoNum: 30, affittoStr: '30 € (15 € × 2)', cauzioneNum: 100, cauzioneStr: '100 €', image: '/microfoni.jpg' },
   { id: 8, cat: 'CAVI & BORSA', desc: 'Cavi Alimentazione & Prolunghe', valore: '~87,50 €', affittoNum: 0, affittoStr: 'Incluso', cauzioneNum: 0, cauzioneStr: '—', image: 'https://images.unsplash.com/photo-1591047989835-2b6b5a44b822?w=300&h=300&fit=crop' },
 ];
 
